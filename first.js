@@ -55,6 +55,9 @@ function winner(){
     } else if (i==4 && (computerScore > humanScore)) {
         alert("You lost the game, Better luck next time")
     }
+    else if (i==4 && (computerScore == humanScore)) {
+        alert("Game Tied")
+    }
 }
 
 function getComputerChoice(){
