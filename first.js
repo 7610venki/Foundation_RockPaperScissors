@@ -1,5 +1,3 @@
-
-
 let humanScore = 0;
 let computerScore = 0;
 let cChoice;
@@ -13,7 +11,7 @@ console.log(playGame());
 
 function playGame(){
 
-    for(let n=i;i<=4 ; i++){
+    for(i=0;i<=4 ; i++){
         humanSelection = getHumanChoice();
         computerSelection =  getComputerChoice();
          
@@ -25,16 +23,15 @@ function playGame(){
            while(humanSelection !== "invalid"){
             humanSelection = getHumanChoice();
             playRound(humanSelection, computerSelection);
-            winner();
            }
         }
         else {
             playRound(humanSelection, computerSelection);
             console.log("Computer choice is "+computerSelection+"<====>"+"Human choice is "+humanSelection);
-            winner();
             
-        }    
+        }   
     }
+    winner(); 
 }
 
 
@@ -98,13 +95,3 @@ function getHumanChoice (){
             }
 }
 //console.log(getHumanChoice());
-
-
- 
-
-
-
-
-
-
-
