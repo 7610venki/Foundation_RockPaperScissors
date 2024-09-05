@@ -22,16 +22,14 @@ function playGame(){
             i--;
            while(humanSelection !== "invalid"){
             humanSelection = getHumanChoice();
-            playRound(humanSelection, computerSelection);
+
            }
         }
-        else {
             playRound(humanSelection, computerSelection);
             console.log("Computer choice is "+computerSelection+"<====>"+"Human choice is "+humanSelection);
-            
-        }   
+           winner();  
     }
-    winner(); 
+   
 }
 
 
