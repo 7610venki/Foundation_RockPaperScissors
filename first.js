@@ -19,16 +19,12 @@ function playGame(){
             return;
         }
         else if (humanSelection == "invalid" ){
-            i--;
-           while(humanSelection !== "invalid"){
-            humanSelection = getHumanChoice();
-            break;
-           }
+            i--;           
         }
         else{
             playRound(humanSelection, computerSelection);
             console.log("Computer choice is "+computerSelection+"<====>"+"Human choice is "+humanSelection);
-           winner();  
+            winner();  
         }
     }
    
@@ -36,6 +32,9 @@ function playGame(){
 
 
 function playRound (humanChoice, computerChoice){
+    humanChoice = humanChoice.toLowerCase();
+    computerChoice = computerChoice.toLowerCase();
+    
     if(humanChoice == "rock" && computerChoice=="scissors" || humanChoice == "scissors" && computerChoice=="paper" || humanChoice == "paper" && computerChoice=="rock" ){
         humanScore++;
         return alert("CongratS! you won this round :)");
