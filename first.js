@@ -18,16 +18,18 @@ function playGame(){
         if(humanSelection == "cancel" ){
             return;
         }
-        else if (humanSelection == "invalid"){
+        else if (humanSelection == "invalid" ){
             i--;
            while(humanSelection !== "invalid"){
             humanSelection = getHumanChoice();
-
+            break;
            }
         }
+        else{
             playRound(humanSelection, computerSelection);
             console.log("Computer choice is "+computerSelection+"<====>"+"Human choice is "+humanSelection);
            winner();  
+        }
     }
    
 }
