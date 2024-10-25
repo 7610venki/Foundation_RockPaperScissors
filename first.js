@@ -53,10 +53,9 @@ function scoreBoard(){
   // resultContainer.textContent = `Your score is ${humanScore} \nComputer score is ${computerScore}`;
 
 //using innerHTML we can use HTML tags to break the line
-resultContainer.innerHTML= `your score is     ==> ${humanScore} <br> 
-                            Computer score is ==> ${computerScore}`;
+resultContainer.innerHTML= `your score is ${humanScore} <br> Computer score is ${computerScore}`;
 }
-
+//
 function endResult (){
     
 if (humanScore==5 && (humanScore > computerScore)) {
