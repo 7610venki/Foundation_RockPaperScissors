@@ -5,58 +5,72 @@ let uChoice;
 let humanSelection;
 let computerSelection;
 let i = 0;
+let resultContainer = document.querySelector("#resultContainer");
+let humanResult;
+let computerResult;
+let drawResult;
+let uSelect = document.querySelector("#btnContainer");
 
-console.log(playGame());
-//Rock beats scissors, scissors beat paper, and paper beats rock.
 
-function playGame(){
-
-    for(i=0;i<=4 ; i++){
-        humanSelection = getHumanChoice();
-        computerSelection =  getComputerChoice();
-         
-        if(humanSelection == "cancel" ){
-            return;
+uSelect.addEventListener("click",e=>{
+humanSelection =  e.target.textContent;
+computerSelection =  getComputerChoice();
+    
+if (humanScore<5 && computerScore<5) {
+        playRound (humanSelection, computerSelection);
         }
-        else if (humanSelection == "invalid" ){
-            i--;           
-        }
-        else{
-            playRound(humanSelection, computerSelection);
-            console.log("Computer choice is "+computerSelection+"<====>"+"Human choice is "+humanSelection);
-            winner();  
-        }
-    }
-   
-}
 
+        scoreBoard();
+
+        if(humanScore==5 || computerScore==5){
+        endResult ();
+        humanScore =0;
+        computerScore=0;
+        }
+
+})
 
 function playRound (humanChoice, computerChoice){
     humanChoice = humanChoice.toLowerCase();
     computerChoice = computerChoice.toLowerCase();
-    
+
     if(humanChoice == "rock" && computerChoice=="scissors" || humanChoice == "scissors" && computerChoice=="paper" || humanChoice == "paper" && computerChoice=="rock" ){
-        humanScore++;
-        return alert("CongratS! you won this round :)");
+        humanScore++;   
+        //return alert("CongratS! you won this round :)");
     }
     else if(computerChoice == "rock" && humanChoice=="scissors" || computerChoice == "scissors" && humanChoice=="paper" || computerChoice == "paper" && humanChoice=="rock"){
         computerScore++;
-        return alert("You lost this round :(");
+        //return alert("You lost this round :(");
     }
     else if(humanChoice == computerChoice){
-        return alert("Oops! its a draw! :|");
-    }
+      return alert("Oops! its a draw! :|");
+   }
 }
 
-function winner(){
-    if (i==4 && (humanScore > computerScore)) {
-        alert("Congratulations! You have won the game");
-    } else if (i==4 && (computerScore > humanScore)) {
-        alert("You lost the game, Better luck next time")
-    }
-    else if (i==4 && (computerScore == humanScore)) {
-        alert("Game Tied")
-    }
+function scoreBoard(){
+//using textCOntent we need to add the setup for style to include line breaks
+  //  resultContainer.style.whiteSpace = "pre-wrap";
+  // resultContainer.textContent = `Your score is ${humanScore} \nComputer score is ${computerScore}`;
+
+//using innerHTML we can use HTML tags to break the line
+resultContainer.innerHTML= `your score is     ==> ${humanScore} <br> 
+                            Computer score is ==> ${computerScore}`;
+}
+
+function endResult (){
+    
+if (humanScore==5 && (humanScore > computerScore)) {
+    alert("Congratulations! You have won the game");
+    return;
+}
+if (computerScore==5 && (humanScore < computerScore)) {
+    alert("Computer has won he game");
+    return;
+}
+if (humanScore==5 && (humanScore==computerScore)) {
+    alert("Game tied, no winner");
+    return;
+}
 }
 
 function getComputerChoice(){
@@ -70,30 +84,4 @@ function getComputerChoice(){
     }
     else {
         return "scissors"
-    }
-}
-//console.log(getComputerChoice());
-
-
-function getHumanChoice (){
-    uChoice = prompt(` Please provide your choice, Rock, Paper or Scissors ?`);
-           
-            if(uChoice === null) {
-                alert ("see ya later");
-               return "cancel";
-            }
-            else if(uChoice.toLowerCase()=="rock") {
-                return uChoice;
-            }
-            else if (uChoice.toLowerCase()=="paper"){
-                return uChoice;
-            }
-            else if (uChoice.toLowerCase()=="scissors"){
-                return uChoice;
-            }
-            else {
-            alert("You have provided an invalid input, please provide a valid input to proceed");
-             return "invalid";
-            }
-}
-//console.log(getHumanChoice());
+    }}

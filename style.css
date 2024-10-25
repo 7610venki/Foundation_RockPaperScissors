@@ -1,0 +1,32 @@
+.body{
+ 
+    min-height: dvh;
+    min-width:  dvh;
+  }
+
+#btnContainer{
+  background-color: papayawhip;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  border-radius: 4px;
+}
+
+#btnContainer button {
+    border-radius: 8px;
+    margin: 6px;
+    height: 20px;
+    width: 80px;
+    border-color: gray;
+    border-style: solid;
+}
+
+#resultContainer{
+    border-color: 2px solid black;
+    border-radius: 4px;
+    border-width: 200px;
+    background-color: grey;
+   height: 100px
+}
+
+
